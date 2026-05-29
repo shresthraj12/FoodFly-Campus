@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodFly Campus - DevOps Case Study Presentation</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Shell -->
+  <div class="app-container">
+    
+    <!-- Top Control Bar -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">FoodFly <span class="accent-text">Campus</span></span>
+      </div>
+      <div class="controls-center">
+        <button id="prev-btn" class="nav-btn" title="Previous Slide (Left Arrow)">◀</button>
+        <span class="slide-indicator"><span id="current-slide">1</span> / 10</span>
+        <button id="next-btn" class="nav-btn" title="Next Slide (Right Arrow)">▶</button>
+      </div>
+      <div class="controls-right">
+        <button id="play-btn" class="action-btn" title="Toggle Auto-Play">Auto-Play</button>
+        <button id="fullscreen-btn" class="action-btn" title="Toggle Fullscreen">Fullscreen</button>
+        <button id="print-btn" class="action-btn accent-btn" title="Save as PDF (Ctrl+P)">Print PDF</button>
+      </div>
+    </header>
+
+    <!-- Main Presentation Deck -->
+    <main class="deck-container">
+      
+      <!-- SLIDE 1: Cover Slide -->
+      <section class="slide active" id="slide-1">
+        <div class="slide-body split-title">
+          <div class="title-splash">
+            <div class="badge">🔥 DevOps Case Study</div>
+            <h1 class="slide-title-large">FoodFly <span class="gradient-text">Campus</span></h1>
+            <p class="slide-subtitle">Smart Campus Food Delivery Platform</p>
+            <div class="orange-divider"></div>
+            <p class="slide-meta">A high-availability, multi-container student delivery platform engineered for LPU hostels. Built with Node.js, React, and MongoDB, orchestrated with Docker, automated via Jenkins pipelines, and monitored with Prometheus & Grafana.</p>
+            <div class="title-meta-footer">
+              <div class="meta-item">
+                <span class="meta-label">Deployments:</span>
+                <span class="meta-value">Docker Compose</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Observability:</span>
+                <span class="meta-value">Prometheus & Grafana</span>
+              </div>
+            </div>
+          </div>
+          <div class="title-image-container">
+            <img src="assets/cover_illustration_light.png" alt="Smart Campus Delivery Rider" class="floating-illustration">
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: Problem Statement -->
+      <section class="slide" id="slide-2">
+        <div class="slide-header">
+          <div class="slide-number">02</div>
+          <h2>The Problem Statement</h2>
+        </div>
+        <div class="slide-body split-50-50">
+          <div class="problems-list">
+            <!-- Problem 1 -->
+            <div class="problem-item">
+              <div class="prob-bullet red-glow">📍</div>
+              <div class="prob-details">
+                <h3>Hostel Gate Restrictions</h3>
+                <p>Delivery agents from external platforms (Zomato/Swiggy) are stopped at the main gates of LPU. Students must walk up to 1.5 km just to receive their food packages.</p>
+              </div>
+            </div>
+            <!-- Problem 2 -->
+            <div class="problem-item">
+              <div class="prob-bullet red-glow">⏱️</div>
+              <div class="prob-details">
+                <h3>Long Delivery & Cold Food</h3>
+                <p>Due to the massive student population and campus checkposts, standard riders face route confusion, resulting in extreme delays and cold, unappetizing meals.</p>
+              </div>
+            </div>
+            <!-- Problem 3 -->
+            <div class="problem-item">
+              <div class="prob-bullet red-glow">🛒</div>
+              <div class="prob-details">
+                <h3>Fragmented Campus Canteens</h3>
+                <p>LPU campus contains multiple individual tuck shops, canteens, and food courts (like block canteens). There is no unified system to order items from multiple shops in a single checkout.</p>
+              </div>
+            </div>
+          </div>
+          <div class="illustration-container">
+            <img src="assets/problem_illustration_light.png" alt="Delivery Couriers Blocked at Gate" class="premium-vector-image">
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: Solution Overview -->
+      <section class="slide" id="slide-3">
+        <div class="slide-header">
+          <div class="slide-number">03</div>
+          <h2>The Solution Overview</h2>
+        </div>
+        <div class="slide-body split-50-50">
+          <div class="illustration-container">
+            <img src="assets/solution_illustration_light.png" alt="Smart Campus Map" class="premium-vector-image">
+          </div>
+          <div class="solution-details">
+            <div class="badge">Platform Highlights</div>
+            <h3 class="gradient-text">Hyper-Local Campus Platform</h3>
+            <p class="highlight-paragraph">FoodFly Campus resolves campus restrictions by creating a dedicated, closed-loop ordering network within the university premises.</p>
+            
+            <div class="solution-pillars">
+              <div class="pillar-card">
+                <span class="pillar-icon">🏫</span>
+                <div>
+                  <h4>Block-Wise Delivery Drop-Offs</h4>
+                  <p>Riders deliver straight to designated tables at BH-1, BH-2, GH-1, etc.</p>
+                </div>
+              </div>
+              <div class="pillar-card">
+                <span class="pillar-icon">⚡</span>
+                <div>
+                  <h4>Student & Internal Riders</h4>
+                  <p>Optimized internal routing paths using campus delivery agents with full permission to access hostel lobbies.</p>
+                </div>
+              </div>
+              <div class="pillar-card">
+                <span class="pillar-icon">⚙️</span>
+                <div>
+                  <h4>DevOps Infrastructure</h4>
+                  <p>Orchestrated with Docker Compose and managed with continuous automation to handle heavy peak order rushes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: Key Features -->
+      <section class="slide" id="slide-4">
+        <div class="slide-header">
+          <div class="slide-number">04</div>
+          <h2>Key Features</h2>
+        </div>
+        <div class="slide-body grid-3-x-2">
+          <!-- Feat 1 -->
+          <div class="glass-card feat-card">
+            <div class="feat-badge">LPU Zones</div>
+            <div class="feat-header-row">
+              <span class="feat-icon">📍</span>
+              <h3>Hostel Drop Points</h3>
+            </div>
+            <p>Direct drop-offs to BH-1 to BH-6, GH-1 to GH-3, and designated blocks with live pin drops.</p>
+          </div>
+          <!-- Feat 2 -->
+          <div class="glass-card feat-card">
+            <div class="feat-badge">Unified</div>
+            <div class="feat-header-row">
+              <span class="feat-icon">🍔</span>
+              <h3>Multi-Vendor Cart</h3>
+            </div>
+            <p>Order food from different campus canteens and tuck shops in a single, consolidated payment checkout.</p>
+          </div>
+          <!-- Feat 3 -->
+          <div class="glass-card feat-card">
+            <div class="feat-badge">Real-Time</div>
+            <div class="feat-header-row">
+              <span class="feat-icon">🚴</span>
+              <h3>Rider Live Tracking</h3>
+            </div>
+            <p>Visual path tracker demonstrating preparation, packer dispatch, and arrival alerts in real-time.</p>
+          </div>
+          <!-- Feat 4 -->
+          <div class="glass-card feat-card">
+            <div class="feat-badge">JWT</div>
+            <div class="feat-header-row">
+              <span class="feat-icon">🔑</span>
+              <h3>Role Authorization</h3>
+            </div>
+            <p>Secure login with separate portals for Customers (students), Sellers (canteen managers), and Admins.</p>
+          </div>
+          <!-- Feat 5 -->
+          <div class="glass-card feat-card">
+            <div class="feat-badge">Telemetry</div>
+            <div class="feat-header-row">
+              <span class="feat-icon">📈</span>
+              <h3>System Observability</h3>
+            </div>
+            <p>Embedded endpoints feeding API request latencies, network metrics, and CPU loads directly to Prometheus.</p>
+          </div>
+          <!-- Feat 6 -->
+          <div class="glass-card feat-card">
+            <div class="feat-badge">CI/CD</div>
+            <div class="feat-header-row">
+              <span class="feat-icon">🔄</span>
+              <h3>Automated Rollouts</h3>
+            </div>
+            <p>Webhook-triggered pipeline rebuilding altered containers silently to achieve zero-downtime rollouts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Tech Stack -->
+      <section class="slide" id="slide-5">
+        <div class="slide-header">
+          <div class="slide-number">05</div>
+          <h2>Technical Stack</h2>
+        </div>
+        <div class="slide-body tech-stack-grid">
+          <!-- Frontend -->
+          <div class="tech-card-group border-blue">
+            <h3>Frontend Tier</h3>
+            <div class="tech-icon-list">
+              <div class="tech-badge-item">
+                <span class="tech-logo react-logo"></span>
+                <span>React JS</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo css-logo"></span>
+                <span>Tailwind CSS</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo vite-logo"></span>
+                <span>Vite Tool</span>
+              </div>
+            </div>
+            <p>SPA rendering with modular route mapping, JWT state authorization, and responsive mobile flexboxes.</p>
+          </div>
+          <!-- Backend -->
+          <div class="tech-card-group border-green">
+            <h3>Backend Tier</h3>
+            <div class="tech-icon-list">
+              <div class="tech-badge-item">
+                <span class="tech-logo node-logo"></span>
+                <span>Node.js</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo express-logo"></span>
+                <span>Express.js</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo jwt-logo"></span>
+                <span>JWT Web Tokens</span>
+              </div>
+            </div>
+            <p>Asynchronous event loop handling RESTful API logic, role middleware verification, and prom-client telemetry.</p>
+          </div>
+          <!-- Database -->
+          <div class="tech-card-group border-yellow">
+            <h3>Database Tier</h3>
+            <div class="tech-icon-list">
+              <div class="tech-badge-item">
+                <span class="tech-logo mongo-logo"></span>
+                <span>MongoDB</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo mongoose-logo"></span>
+                <span>Mongoose ODM</span>
+              </div>
+            </div>
+            <p>NoSQL document store with persistent data volume maps, schema modeling, and direct index lookups.</p>
+          </div>
+          <!-- DevOps / Obs -->
+          <div class="tech-card-group border-orange">
+            <h3>DevOps & Observability</h3>
+            <div class="tech-icon-list">
+              <div class="tech-badge-item">
+                <span class="tech-logo docker-logo"></span>
+                <span>Docker</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo jenkins-logo"></span>
+                <span>Jenkins</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo prometheus-logo"></span>
+                <span>Prometheus</span>
+              </div>
+              <div class="tech-badge-item">
+                <span class="tech-logo grafana-logo"></span>
+                <span>Grafana</span>
+              </div>
+            </div>
+            <p>Automated deployment pipeline building containerized microservices served via an Nginx reverse proxy.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: System Architecture -->
+      <section class="slide" id="slide-6">
+        <div class="slide-header">
+          <div class="slide-number">06</div>
+          <h2>System Architecture</h2>
+        </div>
+        <div class="slide-body architecture-layout">
+          <!-- Live Interactive SVG Diagram -->
+          <div class="svg-container">
+            <svg viewBox="0 0 1000 480" class="arch-svg">
+              <defs>
+                <!-- Marker for arrows -->
+                <marker id="arrow-new" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#ff6b00" />
+                </marker>
+                <marker id="arrow-green-new" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#10b981" />
+                </marker>
+                <marker id="arrow-blue-new" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#00b4d8" />
+                </marker>
+              </defs>
+
+              <!-- Main Application Flow -->
+              <g class="flow-app">
+                <!-- User node -->
+                <rect x="30" y="60" width="130" height="65" rx="10" class="node-premium client-node" />
+                <text x="95" y="98" class="node-text font-title font-bold">Client Browser</text>
+                
+                <!-- Nginx Gateway -->
+                <rect x="230" y="60" width="130" height="65" rx="10" class="node-premium nginx-node" />
+                <text x="295" y="88" class="node-text font-title font-bold">Nginx Gateway</text>
+                <text x="295" y="108" class="node-text port-node">Port 8080</text>
+
+                <!-- Frontend Container -->
+                <rect x="430" y="20" width="140" height="65" rx="10" class="node-premium app-node-fe" />
+                <text x="500" y="48" class="node-text font-title font-bold">React Container</text>
+                <text x="500" y="68" class="node-text port-node">Port 3000</text>
+
+                <!-- Backend Container -->
+                <rect x="430" y="115" width="140" height="65" rx="10" class="node-premium app-node-be" />
+                <text x="500" y="143" class="node-text font-title font-bold">Express Container</text>
+                <text x="500" y="163" class="node-text port-node">Port 5000</text>
+
+                <!-- MongoDB Container -->
+                <rect x="650" y="115" width="130" height="65" rx="10" class="node-premium db-node-mongo" />
+                <text x="715" y="143" class="node-text font-title font-bold">MongoDB Stack</text>
+                <text x="715" y="163" class="node-text port-node">Port 27017</text>
+
+                <!-- Connections -->
+                <path d="M 160 92 L 230 92" class="flow-line dash-line" marker-end="url(#arrow-new)" />
+                <path d="M 360 80 L 395 80 L 395 50 L 430 50" class="flow-line dash-line" marker-end="url(#arrow-new)" />
+                <path d="M 360 105 L 395 105 L 395 145 L 430 145" class="flow-line dash-line" marker-end="url(#arrow-new)" />
+                <path d="M 570 147 L 650 147" class="flow-line dash-line" marker-end="url(#arrow-new)" />
+              </g>
+
+              <!-- Monitoring and DevOps Pipelines -->
+              <g class="flow-devops">
+                <!-- Jenkins Server -->
+                <rect x="30" y="270" width="130" height="65" rx="10" class="node-premium devops-node-jk" />
+                <text x="95" y="298" class="node-text font-title font-bold">Jenkins Server</text>
+                <text x="95" y="318" class="node-text port-node">Port 8081 (CI/CD)</text>
+
+                <!-- Docker Compose Orchestrator -->
+                <rect x="230" y="270" width="140" height="65" rx="10" class="node-premium devops-node-dc" />
+                <text x="300" y="298" class="node-text font-title font-bold">Docker Compose</text>
+                <text x="300" y="318" class="node-text port-node">8 Containers</text>
+
+                <!-- Node Exporter & cAdvisor -->
+                <rect x="440" y="270" width="140" height="65" rx="10" class="node-premium collector-node-ex" />
+                <text x="510" y="298" class="node-text font-title font-bold">Metrics Exporters</text>
+                <text x="510" y="318" class="node-text port-node">Node / cAdvisor</text>
+
+                <!-- Prometheus Server -->
+                <rect x="650" y="270" width="130" height="65" rx="10" class="node-premium monitoring-node-pm" />
+                <text x="715" y="298" class="node-text font-title font-bold">Prometheus DB</text>
+                <text x="715" y="318" class="node-text port-node">Port 9090</text>
+
+                <!-- Grafana Dashboards -->
+                <rect x="840" y="270" width="130" height="65" rx="10" class="node-premium monitoring-node-gf" />
+                <text x="905" y="298" class="node-text font-title font-bold">Grafana Telemetry</text>
+                <text x="905" y="318" class="node-text port-node">Port 3001</text>
+
+                <!-- Connections -->
+                <path d="M 95 190 L 95 270" class="flow-line green-line" marker-end="url(#arrow-green-new)" />
+                <path d="M 160 302 L 230 302" class="flow-line green-line" marker-end="url(#arrow-green-new)" />
+                <path d="M 370 302 L 440 302" class="flow-line green-line" marker-end="url(#arrow-green-new)" />
+                <path d="M 580 302 L 650 302" class="flow-line green-line" marker-end="url(#arrow-green-new)" />
+                <path d="M 780 302 L 840 302" class="flow-line green-line" marker-end="url(#arrow-green-new)" />
+                
+                <!-- Scraping Paths -->
+                <path d="M 650 280 L 510 230 L 500 185" class="flow-line blue-line" marker-end="url(#arrow-blue-new)" />
+                <path d="M 650 292 L 580 292" class="flow-line blue-line" marker-end="url(#arrow-blue-new)" />
+              </g>
+
+              <!-- Connecting Text -->
+              <text x="95" y="185" class="svg-label font-bold red-text">Webhook Pull</text>
+              <text x="575" y="225" class="svg-label green-text">Scrapes /metrics</text>
+            </svg>
+          </div>
+          <div class="architecture-desc">
+            <p>Unified ingress routes clients via <b>Nginx Reverse Proxy</b> (port 8080) to either the static React content or Express REST API. <b>Jenkins automation</b> pulls GitHub changes, tests, compiles, and deploys using <b>Docker Compose</b>. cAdvisor and Node Exporter collect metrics scraped by Prometheus and graphed in Grafana dashboards.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: Docker & Containerization -->
+      <section class="slide" id="slide-7">
+        <div class="slide-header">
+          <div class="slide-number">07</div>
+          <h2>Docker & Containerization</h2>
+        </div>
+        <div class="slide-body split-50-50">
+          <div class="code-panel">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+              <span class="code-title">docker-compose.yml</span>
+            </div>
+            <pre><code><span class="yaml-key">services</span>:
+  <span class="yaml-key">mongodb</span>:
+    <span class="yaml-key">image</span>: mongo:latest
+    <span class="yaml-key">container_name</span>: foodfly_mongodb
+    <span class="yaml-key">volumes</span>: [mongodb_data:/data/db]
+  
+  <span class="yaml-key">backend</span>:
+    <span class="yaml-key">build</span>: ./backend
+    <span class="yaml-key">container_name</span>: foodfly_backend
+    <span class="yaml-key">depends_on</span>: { mongodb: { condition: healthy } }
+    <span class="yaml-key">environment</span>: [MONGODB_URI, JWT_SECRET]
+  
+  <span class="yaml-key">frontend</span>:
+    <span class="yaml-key">build</span>: ./frontend
+    <span class="yaml-key">container_name</span>: foodfly_frontend
+    <span class="yaml-key">ports</span>: ["3000:80"]
+
+  <span class="yaml-key">nginx</span>:
+    <span class="yaml-key">image</span>: nginx:alpine
+    <span class="yaml-key">ports</span>: ["8080:80"]
+    <span class="yaml-key">volumes</span>: [./nginx/nginx.conf:/etc/nginx/nginx.conf]</code></pre>
+          </div>
+          <div class="docker-details-panel">
+            <div class="docker-image-frame">
+              <img src="assets/docker_containers_light.png" alt="Docker Stack Graphic" class="dock-graphic">
+            </div>
+            <div class="glass-card docker-info-card">
+              <h4>🐋 Bridge Network Isolation</h4>
+              <p>All microservices are isolated inside a custom Docker bridge network. Services connect securely using container hostnames (e.g. <code>mongodb://mongodb:27017</code>), hiding ports from the public internet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: Jenkins CI/CD Pipeline -->
+      <section class="slide" id="slide-8">
+        <div class="slide-header">
+          <div class="slide-number">08</div>
+          <h2>Jenkins CI/CD Pipeline</h2>
+        </div>
+        <div class="slide-body split-50-50">
+          <div class="pipeline-card-left">
+            <div class="badge">Pipeline Stages (Jenkinsfile)</div>
+            <div class="pipeline-list">
+              <div class="pipeline-block success">
+                <span class="step-badge-green">Stage 1</span>
+                <span class="step-title">SCM Checkout</span>
+                <span class="step-duration">5s</span>
+              </div>
+              <div class="pipeline-block success">
+                <span class="step-badge-green">Stage 2</span>
+                <span class="step-title">Install Dependency Packages</span>
+                <span class="step-duration">12s</span>
+              </div>
+              <div class="pipeline-block success">
+                <span class="step-badge-green">Stage 3</span>
+                <span class="step-title">Compile & Validate Frontend Assets</span>
+                <span class="step-duration">45s</span>
+              </div>
+              <div class="pipeline-block success">
+                <span class="step-badge-green">Stage 4</span>
+                <span class="step-title">Scan Express Backend Script Syntax</span>
+                <span class="step-duration">8s</span>
+              </div>
+              <div class="pipeline-block success">
+                <span class="step-badge-green">Stage 5</span>
+                <span class="step-title">Docker Multi-Image Compilation</span>
+                <span class="step-duration">30s</span>
+              </div>
+              <div class="pipeline-block success">
+                <span class="step-badge-green">Stage 6</span>
+                <span class="step-title">Containerized Rollout & Restart</span>
+                <span class="step-duration">15s</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pipeline-images-right">
+            <div class="glass-card pip-img-item">
+              <h4>Build Flow Automation</h4>
+              <img src="assets/jenkins_illustration_light.png" alt="Jenkins Webhook Flow" class="side-illustration-small">
+            </div>
+            <div class="glass-card pip-img-item">
+              <h4>Stage View Output</h4>
+              <img src="assets/jenkins_pipeline.png" alt="Jenkins Dashboard stages screenshot" class="side-illustration-small">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: Monitoring with Grafana & Prometheus -->
+      <section class="slide" id="slide-9">
+        <div class="slide-header">
+          <div class="slide-number">09</div>
+          <h2>Monitoring with Grafana & Prometheus</h2>
+        </div>
+        <div class="slide-body split-50-50">
+          <div class="monitoring-images-left">
+            <div class="glass-card mon-img-item">
+              <h4>Telemetry Observability</h4>
+              <img src="assets/grafana_observability.png" alt="Prometheus Monitoring Stack" class="side-illustration-small">
+            </div>
+            <div class="glass-card mon-img-item">
+              <h4>Telemetry Dashboards</h4>
+              <img src="assets/grafana_metrics.png" alt="Grafana Metrics Screenshot" class="side-illustration-small">
+            </div>
+          </div>
+
+          <div class="monitoring-details-right">
+            <div class="badge">Telemetry Setup</div>
+            <h3 class="gradient-text">Three-Dimensional Metrics</h3>
+            <p>Telemetry metrics are scraped continuously every 15 seconds to ensure system observability and rapid problem detection during campus peaks.</p>
+            
+            <div class="mon-pillars">
+              <div class="mon-card-pill">
+                <span class="pill-badge-orange">App</span>
+                <div>
+                  <h5>Express REST API Metrics</h5>
+                  <p>Uses <code>prom-client</code> to collect HTTP request duration histograms and response status error counters.</p>
+                </div>
+              </div>
+              <div class="mon-card-pill">
+                <span class="pill-badge-orange">Docker</span>
+                <div>
+                  <h5>cAdvisor Container Stats</h5>
+                  <p>Analyzes and exposes resource usage (CPU cycles, memory allocation) of each isolated service container.</p>
+                </div>
+              </div>
+              <div class="mon-card-pill">
+                <span class="pill-badge-orange">Host</span>
+                <div>
+                  <h5>Node Exporter System Load</h5>
+                  <p>Gathers hardware parameters (physical CPU loading, virtual RAM usage, disk I/O metrics) of the host VM.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: UI Screenshots & Conclusion (LIGHT REDESIGNED) -->
+      <section class="slide" id="slide-10">
+        <div class="slide-header">
+          <div class="slide-number">10</div>
+          <h2>UI Showcases & Conclusion</h2>
+        </div>
+        <div class="slide-body slide10-body">
+          
+          <!-- Top Row split into Left and Right -->
+          <div class="s10-top-split">
+            
+            <!-- LEFT: Conclusion points inside modern icon cards -->
+            <div class="s10-conclusion-left">
+              <div class="badge">Key Takeaways</div>
+              
+              <div class="conclusion-cards-stack">
+                <div class="conclusion-icon-card border-orange-light">
+                  <span class="concl-card-icon shadow-orange-glow">🐳</span>
+                  <div class="concl-card-text">
+                    <h4>Microservice Isolation</h4>
+                    <p>Docker containerization eliminates the "works on my machine" problem, standardizing local, test, and production hosts.</p>
+                  </div>
+                </div>
+
+                <div class="conclusion-icon-card border-orange-light">
+                  <span class="concl-card-icon shadow-orange-glow">🔄</span>
+                  <div class="concl-card-text">
+                    <h4>Automated Pipelines</h4>
+                    <p>Jenkins automates code triggers, validation checks, image builds, and restarts, enforcing a complete pipeline rollout.</p>
+                  </div>
+                </div>
+
+                <div class="conclusion-icon-card border-orange-light">
+                  <span class="concl-card-icon shadow-orange-glow">📊</span>
+                  <div class="concl-card-text">
+                    <h4>3D System Observability</h4>
+                    <p>Scrapers constantly report telemetry endpoints to Prometheus dashboards, preventing bottlenecks.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Modern UI showcase gallery -->
+            <div class="s10-gallery-right">
+              <div class="badge">System Screenshots</div>
+              <div class="ui-gallery-showcase">
+                <div class="ui-showcase-card" data-src="assets/home_page.png">
+                  <img src="assets/home_page.png" alt="Home Page Screen">
+                  <div class="ui-card-label">Home Mockup</div>
+                </div>
+                <div class="ui-showcase-card" data-src="assets/menu_page.png">
+                  <img src="assets/menu_page.png" alt="Menu & Cart Screen">
+                  <div class="ui-card-label">Menu & Cart Mockup</div>
+                </div>
+                <div class="ui-showcase-card" data-src="assets/checkout_page.png">
+                  <img src="assets/checkout_page.png" alt="Checkout Screen">
+                  <div class="ui-card-label">Checkout Mockup</div>
+                </div>
+                <div class="ui-showcase-card" data-src="assets/admin_dashboard.png">
+                  <img src="assets/admin_dashboard.png" alt="Vendor Dashboard Screen">
+                  <div class="ui-card-label">Admin Dashboard</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTTOM: Thank You section with LPU campus illustration and startup-style footer icons -->
+          <div class="s10-thankyou-bottom">
+            <div class="ty-text-panel">
+              <h3 class="gradient-text">Thank You!</h3>
+              <p>FoodFly Campus — Revolutionizing Smart Dining Logistics at LPU</p>
+              
+              <!-- Startup-style footer icons -->
+              <div class="startup-footer-badges">
+                <div class="footer-badge">
+                  <span class="badge-icon">🚴</span>
+                  <span>Fast Delivery</span>
+                </div>
+                <div class="footer-badge">
+                  <span class="badge-icon">🍔</span>
+                  <span>Fresh Food</span>
+                </div>
+                <div class="footer-badge">
+                  <span class="badge-icon">🏫</span>
+                  <span>Campus First</span>
+                </div>
+                <div class="footer-badge">
+                  <span class="badge-icon">🎓</span>
+                  <span>Student Focused</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- LPU campus illustration (custom vector SVG) -->
+            <div class="lpu-illustration-panel">
+              <svg viewBox="0 0 700 120" class="lpu-vector-svg">
+                <defs>
+                  <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#fff8f4" />
+                    <stop offset="100%" stop-color="#ffebe1" />
+                  </linearGradient>
+                  <linearGradient id="lpuRed" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ff7f30" />
+                    <stop offset="100%" stop-color="#ff3b30" />
+                  </linearGradient>
+                </defs>
+                <!-- Sky -->
+                <rect width="700" height="120" fill="url(#skyGrad)" rx="10" />
+                <circle cx="80" cy="30" r="15" fill="#ffffff" opacity="0.8" />
+                <circle cx="100" cy="25" r="20" fill="#ffffff" opacity="0.8" />
+                <circle cx="600" cy="30" r="18" fill="#ffffff" opacity="0.8" />
+
+                <!-- Silhouettes (Academic block layout) -->
+                <g fill="#e5e7eb" opacity="0.8">
+                  <rect x="420" y="30" width="100" height="70" />
+                  <rect x="390" y="45" width="40" height="55" />
+                  <rect x="510" y="45" width="40" height="55" />
+                  <polygon points="470,12 450,30 490,30" />
+                </g>
+
+                <!-- Gate towers LPU signature -->
+                <g fill="url(#lpuRed)">
+                  <rect x="250" y="30" width="22" height="70" />
+                  <rect x="320" y="30" width="22" height="70" />
+                  <path d="M 272 45 Q 296 30 320 45 L 320 53 Q 296 38 272 53 Z" />
+                  <!-- Arch Columns -->
+                  <rect x="256" y="23" width="10" height="7" fill="#ffe7db" />
+                  <rect x="326" y="23" width="10" height="7" fill="#ffe7db" />
+                  <!-- Gate Center Badge -->
+                  <rect x="282" y="38" width="28" height="10" rx="2" fill="#ffffff" />
+                  <text x="296" y="46" font-family="Poppins, sans-serif" font-size="6" font-weight="bold" fill="#ff3b30" text-anchor="middle">LPU</text>
+                </g>
+
+                <!-- Ground -->
+                <rect x="0" y="95" width="700" height="25" fill="#10b981" />
+                <rect x="0" y="105" width="700" height="15" fill="#059669" />
+
+                <!-- Trees -->
+                <g fill="#047857">
+                  <circle cx="120" cy="80" r="16" />
+                  <rect x="117" y="80" width="6" height="20" fill="#78350f" />
+                  <circle cx="140" cy="85" r="12" />
+                  
+                  <circle cx="560" cy="80" r="16" />
+                  <rect x="557" y="80" width="6" height="20" fill="#78350f" />
+                </g>
+
+                <!-- Scooter Rider delivering to block -->
+                <g transform="translate(40, 75)">
+                  <!-- Scooter body -->
+                  <path d="M 12 15 Q 22 15 25 8 L 30 8 L 27 20 L 8 20 Z" fill="#ff6b00" />
+                  <circle cx="8" cy="20" r="6" fill="#374151" />
+                  <circle cx="26" cy="20" r="6" fill="#374151" />
+                  <!-- Rider -->
+                  <circle cx="18" cy="-2" r="4" fill="#fca5a5" /> <!-- Head -->
+                  <rect x="15" y="2" width="6" height="9" rx="1.5" fill="#1e293b" /> <!-- Body -->
+                  <rect x="19" y="-4" width="6" height="4" rx="1.5" fill="#ff3b30" /> <!-- Helmet -->
+                  <!-- Deliver Box on Back -->
+                  <rect x="8" y="2" width="8" height="8" rx="1" fill="#ff6b00" stroke="#ffffff" stroke-width="0.3" />
+                  <!-- Handle -->
+                  <line x1="20" y1="4" x2="26" y2="8" stroke="#374151" stroke-width="1.5" />
+                </g>
+              </svg>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Slide Thumbnails Footer -->
+    <footer class="app-footer">
+      <div class="slide-thumbs">
+        <button class="thumb-btn active" data-slide="1">1. Cover</button>
+        <button class="thumb-btn" data-slide="2">2. Problem</button>
+        <button class="thumb-btn" data-slide="3">3. Solution</button>
+        <button class="thumb-btn" data-slide="4">4. Features</button>
+        <button class="thumb-btn" data-slide="5">5. Stack</button>
+        <button class="thumb-btn" data-slide="6">6. Architecture</button>
+        <button class="thumb-btn" data-slide="7">7. Docker</button>
+        <button class="thumb-btn" data-slide="8">8. Jenkins</button>
+        <button class="thumb-btn" data-slide="9">9. Monitoring</button>
+        <button class="thumb-btn" data-slide="10">10. Pitch & TY</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Zoom Overlay Modal -->
+  <div id="zoom-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-img">
+    <div id="modal-caption"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
